@@ -31,11 +31,11 @@ namespace LocalBusiness.Controllers
       return CreatedAtAction(nameof(GetBusiness), new { id = business.BusinessId }, business);
     }
 
-    [HttpGet]
+    [HttpGet("{id}")]
     public async Task<ActionResult<Business>> GetBusiness(int id)
     {
       var business = await _db.Businesses.FindAsync(id);
-      
+
       if (business == null)
       {
         return NotFound();
