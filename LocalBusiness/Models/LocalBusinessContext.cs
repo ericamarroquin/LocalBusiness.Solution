@@ -10,12 +10,5 @@ namespace LocalBusiness.Models
     }
 
     public DbSet<Business> Businesses { get; set; }
-
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-      modelBuilder.Entity<Business>()
-        .Property(p => p.BusinessId)
-        .ValueGeneratedOnAdd();
-    }
   }
 }
