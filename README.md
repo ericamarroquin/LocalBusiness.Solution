@@ -29,8 +29,8 @@ This application utilizes a RESTful API "LocalBusiness" to list restaurants and 
 
 ### Setup Instructions
 * Clone this repository to desired location using `git clone` command
-* Navigate to PierresTreats.Solution/PierresTreats
-* Create an `appsettings.json` file in PierresTreats.Solution/PierresTreats
+* Navigate to LocalBusiness.Solution/LocalBusiness
+* Create an `appsettings.json` file in LocalBusiness.Solution/LocalBusiness
   - Open `appsettings.json` and add the following code, changing [YOUR-USERNAME-HERE] and [YOUR-PASSWORD-HERE] to your unique MySQL username and password, respectively:
 ```json
 {
@@ -41,15 +41,15 @@ This application utilizes a RESTful API "LocalBusiness" to list restaurants and 
 ```
 
 ### Create and update database
-* Navigate to PierresTreats.Solution/PierresTreats
+* Navigate to LocalBusiness.Solution/LocalBusiness
 * Run the command `dotnet restore` to install all necessary packages
 * Run the command `dotnet ef database update`
   - This will use the already existing "Migrations" folder to create the database
 
-### Running the application
-* To run the application, navigate to PierresTreats.Solution/PierresTreats
+### Running the API
+* To run the API, navigate to LocalBusiness.Solution/LocalBusiness
   - Run the command `dotnet run`
-  - If a host does not automatically show in your browser, enter, in your browser, the URL given in the console message when starting `dotnet run` from the previous step
+  - Follow the below API endpoints to query the database
 
 ## API Endpoints
 
@@ -85,7 +85,7 @@ http://localhost:5000/api/Business/?name=viva
 
 ### JSON Body for POST and PUT Requests
 When querying a POST or PUT request, a JSON body is needed to add or edit information in the database, respectively. Use the following JSON body to do so.
- 
+
 ```json
   {
     "businessId": {id},
