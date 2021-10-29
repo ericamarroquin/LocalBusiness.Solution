@@ -71,6 +71,22 @@ namespace LocalBusiness.Controllers
       return NoContent();
     }
 
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteBusiness(int id)
+    {
+      var business = await _db.Businesses.FindAsync(id);
+      
+      if (business == null)
+      {
+        return NotFound();
+      }
+
+      _db.Businesses.Remove(business);
+      await _db.SaveChangesAsync();
+
+      return NoContent();
+    }
+
     private bool BusinessExists(int id)
     {
       return _db.Businesses.Any(business => business.BusinessId == id);
