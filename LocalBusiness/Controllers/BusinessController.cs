@@ -36,7 +36,6 @@ namespace LocalBusiness.Controllers
       {
         query = query.Where(entry => entry.Phone == phone);
       }
-
       return await query.ToListAsync();
     }
 
