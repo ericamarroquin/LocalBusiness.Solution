@@ -19,10 +19,6 @@
 
 This application utilizes a RESTful API "LocalBusiness" to list restaurants and shows in a town. "LocalBusiness" has GET, POST, PUT, and DELETE endpoints.
 
-## API Endpoints
-
-
-
 ## Setup/Installation Requirements
 
 ### Installation Requirements
@@ -55,9 +51,53 @@ This application utilizes a RESTful API "LocalBusiness" to list restaurants and 
   - Run the command `dotnet run`
   - If a host does not automatically show in your browser, enter, in your browser, the URL given in the console message when starting `dotnet run` from the previous step
 
+## API Endpoints
+
+Base URL: `http://localhost:5000`
+
+### HTTP Requests for Businesses
+
+```c#
+GET /api/Business
+POST /api/Business
+PUT /api/Business
+GET /api/Business/{id}
+DELETE /api/Business/{id}
+```
+
+### Example Query
+
+```
+http://localhost:5000/api/Business/2
+```
+
+### Path Parameters
+|  Parameter   | Type   | Required | Description                     |
+|  ----------- | ------ | -------- | ------------------------------- |
+| name         | string | true     | Return matches by name          |
+| businessType | string | true     | Return matches by business type |
+| phone        | string | true     | Return matches by phone number  |
+
+### Example Query for Searching by Parameter
+```
+http://localhost:5000/api/Business/?name=viva
+```
+
+### JSON Body for POST and PUT Requests
+When querying a POST or PUT request, a JSON body is needed to add or edit information in the database, respectively. Use the following JSON body to do so.
+ 
+```json
+  {
+    "businessId": {id},
+    "name": "string",
+    "businessType": "string",
+    "phone": "string"
+  }
+```
+
 ## Known Bugs
 
-* Same flavor can be added to treat multiple times 
+* No known issues
 
 ## License
 
