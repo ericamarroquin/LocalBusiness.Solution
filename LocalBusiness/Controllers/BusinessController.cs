@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 using LocalBusiness.Models;
 
 namespace LocalBusiness.Controllers
@@ -42,6 +43,37 @@ namespace LocalBusiness.Controllers
       }
 
       return business;
+    }
+    
+    [HttpPut]
+    public async Task<IActionResult> Put(int id, Business business)
+    {
+      if (id != business.BusinessId)
+      {
+        return BadRequest();
+      }
+
+      try
+      {
+        await _db.SaveChangesAsync();
+      }
+      catch (DbUpdateConcurrencyException)
+      {
+        if (!BusinessExists(id))
+        {
+          return NotFound();
+        }
+        else
+        {
+          throw;
+        }
+      }
+      return NoContent();
+    }
+
+    private bool BusinessExists(int id)
+    {
+      return _db.Businesses.Any(business => business.BusinessId == id);
     }
   }
 }
