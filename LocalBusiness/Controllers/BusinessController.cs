@@ -69,6 +69,8 @@ namespace LocalBusiness.Controllers
         return BadRequest();
       }
 
+      _db.Entry(business).State = EntityState.Modified;
+
       try
       {
         await _db.SaveChangesAsync();
