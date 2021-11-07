@@ -51,6 +51,13 @@ This application utilizes a RESTful API "LocalBusiness" to list restaurants and 
   - Run the command `dotnet run`
   - Follow the below API endpoints to query the database
 
+## Using Swagger
+Swagger allows a user to view API endpoints in the browser. For the purpose of this API, Swagger allows the user to complete GET, POST, PUT, and DELETE requests all while using the Swagger interface. To use, click on the request you'd like to complete and the panel will expand. The available parameters and responses will be shown. To perform the request, click on "Try it out" in the top right corner of the panel and enter any needed parameters. Click "Execute" and the server response code and response body will show.
+
+For a GET request, entered parameters will be used to search the database for matching parameters. Not all parameters have to be entered for the request to complete. For a POST or PUT request, a request body will show when "Try it out" is clicked, where the user will directly edit the JSON parameters to be changed. For a DELETE request, only an ID parameter is needed to complete the request.
+
+At the bottom of the page in the "Schemas" panel, all schemas created when using this API will be shown. For the purpose of this API, the only schema created is the Business schema.
+
 ## API Endpoints
 
 Base URL: `http://localhost:5000`
